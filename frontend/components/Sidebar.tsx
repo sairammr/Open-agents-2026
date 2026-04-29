@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const navItems = [
   { href: '/', label: 'Dashboard' },
@@ -10,6 +11,8 @@ const navItems = [
 ]
 
 export default function Sidebar() {
+  const pathname = usePathname()
+
   return (
     <aside className="w-56 bg-gray-900 border-r border-gray-800 flex flex-col p-4">
       <div className="mb-8">
@@ -21,7 +24,11 @@ export default function Sidebar() {
           <Link
             key={item.href}
             href={item.href}
-            className="px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
+            className={`px-3 py-2 rounded-md text-sm transition-colors ${
+              pathname === item.href
+                ? 'bg-indigo-600/20 text-indigo-300'
+                : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+            }`}
           >
             {item.label}
           </Link>
