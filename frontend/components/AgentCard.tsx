@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import AgentStatusBadge from './AgentStatusBadge'
 
 export interface Agent {
@@ -19,6 +19,10 @@ interface AgentCardProps {
 
 export default function AgentCard({ agent }: AgentCardProps) {
   const [enabled, setEnabled] = useState(agent.enabled)
+
+  useEffect(() => {
+    setEnabled(agent.enabled)
+  }, [agent.id])
 
   return (
     <div className="bg-gray-900 border border-gray-800 rounded-xl p-5 flex flex-col gap-3">
