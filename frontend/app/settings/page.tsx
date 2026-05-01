@@ -5,6 +5,8 @@ import { useState } from 'react'
 export default function SettingsPage() {
   const [rpcUrl, setRpcUrl] = useState('https://mainnet.infura.io/v3/your-key')
   const [pollInterval, setPollInterval] = useState('15')
+  const [gasThreshold, setGasThreshold] = useState('20')
+  const [notifications, setNotifications] = useState(true)
 
   return (
     <div>
@@ -32,6 +34,38 @@ export default function SettingsPage() {
                 onChange={(e) => setPollInterval(e.target.value)}
                 className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-300 focus:outline-none focus:border-indigo-500"
               />
+            </div>
+          </div>
+        </section>
+        <section className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <h2 className="text-sm font-semibold text-gray-300 mb-4">Agent Thresholds</h2>
+          <div className="space-y-4">
+            <div>
+              <label className="text-xs text-gray-500 block mb-1">Default Gas Threshold (gwei)</label>
+              <input
+                type="number"
+                value={gasThreshold}
+                onChange={(e) => setGasThreshold(e.target.value)}
+                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-300 focus:outline-none focus:border-indigo-500"
+              />
+            </div>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-gray-300">Push Notifications</p>
+                <p className="text-xs text-gray-600">Alert when an agent is triggered</p>
+              </div>
+              <button
+                onClick={() => setNotifications(!notifications)}
+                className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
+                  notifications ? 'bg-indigo-600' : 'bg-gray-700'
+                }`}
+              >
+                <span
+                  className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
+                    notifications ? 'translate-x-5' : 'translate-x-1'
+                  }`}
+                />
+              </button>
             </div>
           </div>
         </section>
