@@ -1,11 +1,12 @@
 import { walletEvents } from '@/lib/dummy-data'
+import type { WalletEvent } from '@/lib/dummy-data'
 
 export default function ActivityFeed() {
   return (
     <div className="bg-gray-900 border border-gray-800 rounded-xl p-4">
       <h2 className="text-sm font-semibold text-gray-300 mb-3">Recent Activity</h2>
       <div className="space-y-3">
-        {walletEvents.slice(0, 5).map((event) => (
+        {walletEvents.slice(0, 5).map((event: WalletEvent) => (
           <div key={event.id} className="flex items-start gap-3">
             <div
               className={`mt-1 w-2 h-2 rounded-full flex-shrink-0 ${
