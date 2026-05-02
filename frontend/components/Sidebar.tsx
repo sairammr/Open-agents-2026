@@ -14,7 +14,7 @@ export default function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="w-56 bg-gray-900 border-r border-gray-800 flex flex-col p-4">
+    <aside className="w-full md:w-56 bg-gray-900 border-b md:border-b-0 md:border-r border-gray-800 flex flex-col p-4">
       <div className="mb-8">
         <h1 className="text-lg font-bold text-indigo-400">Open Agents</h1>
         <p className="text-xs text-gray-500">EVM Reactive Platform</p>
