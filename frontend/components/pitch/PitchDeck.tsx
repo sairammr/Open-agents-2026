@@ -8,21 +8,19 @@ import SlideProblem from './slides/SlideProblem'
 import SlideSolution from './slides/SlideSolution'
 import SlideArchitecture from './slides/SlideArchitecture'
 import SlideCode from './slides/SlideCode'
+import SlideDemoTitle from './slides/SlideDemoTitle'
 import SlideDemo from './slides/SlideDemo'
-import SlideScale from './slides/SlideScale'
-import SlideAsk from './slides/SlideAsk'
 
 const SLIDES = [
-  { id: 'title',    label: 'title',          Component: SlideTitle },
-  { id: 'team',     label: 'the builders',   Component: SlideTeam },
-  { id: 'hook',     label: 'the bug',        Component: SlideHook },
-  { id: 'problem',  label: 'the bug class',  Component: SlideProblem },
-  { id: 'solution', label: 'four functions', Component: SlideSolution },
-  { id: 'arch',     label: 'the architecture', Component: SlideArchitecture },
-  { id: 'code',     label: 'the api',        Component: SlideCode },
-  { id: 'demo',     label: 'the proof',      Component: SlideDemo },
-  { id: 'scale',    label: 'why now',        Component: SlideScale },
-  { id: 'ask',      label: 'what we need',   Component: SlideAsk },
+  { id: 'title',      label: 'title',            Component: SlideTitle },
+  { id: 'team',       label: 'the builders',     Component: SlideTeam },
+  { id: 'hook',       label: 'the bug',          Component: SlideHook },
+  { id: 'problem',    label: 'the bug class',    Component: SlideProblem },
+  { id: 'solution',   label: 'four functions',   Component: SlideSolution },
+  { id: 'arch',       label: 'the architecture', Component: SlideArchitecture },
+  { id: 'code',       label: 'the api',          Component: SlideCode },
+  { id: 'demo-title', label: 'demo',             Component: SlideDemoTitle },
+  { id: 'demo',       label: 'the proof',        Component: SlideDemo },
 ] as const
 
 const TRANSITION_MS = 520
