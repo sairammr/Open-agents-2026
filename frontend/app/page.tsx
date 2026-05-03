@@ -11,28 +11,28 @@ export default function Page() {
     <div style={{ background: 'var(--ink)' }}>
       <Topbar />
 
-      <main style={{ background: 'var(--ink)' }}>
-        <section style={{ padding: 6, background: 'var(--ink)' }}>
+      <main className="shell">
+        <section style={{ padding: 6 }}>
           <Hero />
         </section>
 
-        <section id="why" style={{ padding: '0 6px 6px', background: 'var(--ink)' }}>
+        <section id="why" style={{ padding: '0 6px 6px' }}>
           <WhySection />
         </section>
 
-        <section id="proof" style={{ padding: '0 6px 6px', background: 'var(--ink)' }}>
+        <section id="proof" style={{ padding: '0 6px 6px' }}>
           <ProofSection />
         </section>
 
-        <section style={{ padding: '0 6px 6px', background: 'var(--ink)' }}>
+        <section style={{ padding: '0 6px 6px' }}>
           <NotSection />
         </section>
 
-        <section style={{ padding: '0 6px 6px', background: 'var(--ink)' }}>
+        <section style={{ padding: '0 6px 6px' }}>
           <CTASection />
         </section>
 
-        <footer style={{ padding: '0 6px 6px', background: 'var(--ink)' }}>
+        <footer style={{ padding: '0 6px 6px' }}>
           <Footer />
         </footer>
       </main>

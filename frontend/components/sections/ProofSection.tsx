@@ -7,14 +7,15 @@ export default function ProofSection() {
   return (
     <Mosaic cols="1fr 1.2fr" rows="auto">
       {/* Left: editorial copy tile */}
-      <Tile pad={36} vlabel="proof · kill -9" vlabelSide="left">
+      <Tile pad={40} vlabel="proof · kill -9" vlabelSide="left">
         <div
           style={{
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            paddingLeft: 24,
+            paddingLeft: 28,
+            gap: 36,
           }}
         >
           <div>
@@ -37,7 +38,7 @@ export default function ProofSection() {
                 maxWidth: 420,
               }}
             >
-              Every step inside <code style={{ fontFamily: 'var(--font-mono)', fontSize: 14 }}>durable()</code> is fingerprinted and persisted before it runs. On restart, the wrapper replays from the exact step that crashed and skips anything already on‑chain.
+              Every step inside <code style={{ fontFamily: 'var(--font-mono)', fontSize: 14 }}>receipted()</code> is signed and persisted to 0G Storage. On restart, the wrapper reconciles via chain query and skips anything already mined.
             </p>
             <div style={{ display: 'flex', gap: 8, marginTop: 18, flexWrap: 'wrap' }}>
               <Pill tone="lavender">crash-safe</Pill>

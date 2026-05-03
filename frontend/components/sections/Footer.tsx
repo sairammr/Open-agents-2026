@@ -1,12 +1,11 @@
 import Mosaic from '../Mosaic'
 import Tile from '../Tile'
-import IconButton from '../IconButton'
 import Wordmark from '../Wordmark'
 
 export default function Footer() {
   return (
     <Mosaic cols="1.4fr 1fr 1fr" rows="auto">
-      <Tile pad={24}>
+      <Tile pad={28}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <Wordmark size={20} />
           <span className="it" style={{ fontSize: 13 }}>~ © MMXXVI · MIT</span>
@@ -24,7 +23,7 @@ export default function Footer() {
         </p>
       </Tile>
 
-      <Tile pad={24}>
+      <Tile pad={28}>
         <span
           className="vlabel"
           style={{
@@ -52,31 +51,34 @@ export default function Footer() {
         </div>
       </Tile>
 
-      <Tile tone="butter" pad={24} corner={<IconButton icon="github" />}>
+      <Tile tone="butter" pad={28}>
         <div
           style={{
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
+            gap: 16,
           }}
         >
-          <span className="it" style={{ color: 'var(--acc-butter-ink)', opacity: 0.8 }}>★ on github</span>
-          <div>
-            <div
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 36,
-                lineHeight: 1,
-                color: 'var(--acc-butter-ink)',
-              }}
-            >
-              2.1k
-            </div>
-            <div className="tile-meta" style={{ color: 'var(--acc-butter-ink)', opacity: 0.7 }}>
-              stars ~ this week +312
-            </div>
-          </div>
+          <span
+            className="it"
+            style={{ color: 'var(--acc-butter-ink)', opacity: 0.7, fontSize: 12, letterSpacing: '0.04em' }}
+          >
+            ¶ thesis
+          </span>
+          <p
+            style={{
+              fontFamily: 'var(--font-display), serif',
+              fontStyle: 'italic',
+              fontSize: 18,
+              lineHeight: 1.3,
+              color: 'var(--acc-butter-ink)',
+              margin: 0,
+            }}
+          >
+            Postgres taught your backend ACID semantics. <span style={{ fontStyle: 'normal' }}>ACID</span> teaches your agents.
+          </p>
         </div>
       </Tile>
     </Mosaic>

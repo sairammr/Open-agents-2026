@@ -1,32 +1,46 @@
 'use client'
 
 import { useState } from 'react'
+import { copyText } from '@/lib/copy'
 
-const SRC = `import { atomic, consistent, isolated, durable } from 'acid';
+const SRC = `import { saga, invariant, idempotent, receipted } from 'acid';
 
 // kill -9 me. I won't double-spend.
-await atomic(
-  consistent(invariants,
-    isolated(lockKey,
-      durable(auditLog, async () => {
-        await rotatePosition();
-      })
-    )
-  )
-);`
+const rebalance = receipted({ storage, signer },
+  invariant({
+    pre:  walletBalanceOK,
+    post: noOrphanAllowances,
+  },
+  idempotent({
+    key: (a) => \`rebalance:\${a.target}\`,
+    onChainAware: { chain, waitForFinality: 1 },
+  },
+  saga({
+    steps: [
+      { id: 'approve', do: (c) => approve(USDC, router, c.amount) },
+      { id: 'swap',    do: (c) => router.exactInput(c.args) },
+    ],
+    compensations: { approve: (c) => approve(USDC, router, 0n) },
+  })
+)));
+
+await rebalance({ target: 0.6 });`
 
 export default function CodeBlock() {
   const [copied, setCopied] = useState(false)
 
-  function copy() {
-    navigator.clipboard?.writeText(SRC)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 1400)
+  async function copy() {
+    const ok = await copyText(SRC)
+    if (ok) {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1400)
+    }
   }
 
   const K = (t: string) => <span className="k">{t}</span>
   const F = (t: string) => <span className="f">{t}</span>
   const S = (t: string) => <span className="s">{t}</span>
+  const N = (t: string) => <span className="n">{t}</span>
   const C = (t: string) => <span className="c">{t}</span>
 
   return (
@@ -43,13 +57,13 @@ export default function CodeBlock() {
           </svg>
         )}
       </button>
-      {K('import')} {'{ '}{F('atomic')}{', '}{F('consistent')}{', '}{F('isolated')}{', '}{F('durable')}{' } '}{K('from')} {S("'acid'")};{'\n\n'}
+      {K('import')} {'{ '}{F('saga')}{', '}{F('invariant')}{', '}{F('idempotent')}{', '}{F('receipted')}{' } '}{K('from')} {S("'acid'")};{'\n\n'}
       {C("// kill -9 me. I won't double-spend.")}{'\n'}
-      {K('await')} {F('atomic')}{'(\n  '}
-      {F('consistent')}{'(invariants,\n    '}
-      {F('isolated')}{'(lockKey,\n      '}
-      {F('durable')}{'(auditLog, '}{K('async')}{' () => {\n        '}
-      {K('await')} {F('rotatePosition')}{'();\n      })\n    )\n  )\n);'}
+      {K('const')} rebalance = {F('receipted')}{'({ storage, signer },\n  '}
+      {F('invariant')}{'({\n    pre:  '}{F('walletBalanceOK')}{',\n    post: '}{F('noOrphanAllowances')}{',\n  },\n  '}
+      {F('idempotent')}{'({\n    key: (a) => '}{S('`rebalance:${a.target}`')}{',\n    onChainAware: { chain, waitForFinality: '}{N('1')}{' },\n  },\n  '}
+      {F('saga')}{'({\n    steps: [\n      { id: '}{S("'approve'")}{', do: (c) => '}{F('approve')}{'(USDC, router, c.amount) },\n      { id: '}{S("'swap'")}{',    do: (c) => router.'}{F('exactInput')}{'(c.args) },\n    ],\n    compensations: { '}{F('approve')}{': (c) => '}{F('approve')}{'(USDC, router, '}{N('0n')}{') },\n  })\n)));\n\n'}
+      {K('await')} {F('rebalance')}{'({ target: '}{N('0.6')}{' });'}
     </pre>
   )
 }

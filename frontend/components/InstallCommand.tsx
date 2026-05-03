@@ -1,14 +1,17 @@
 'use client'
 
 import { useState } from 'react'
+import { copyText } from '@/lib/copy'
 
 export default function InstallCommand() {
   const [copied, setCopied] = useState(false)
 
-  function copy() {
-    navigator.clipboard?.writeText('npm install acid')
-    setCopied(true)
-    setTimeout(() => setCopied(false), 1400)
+  async function copy() {
+    const ok = await copyText('npm install acid')
+    if (ok) {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1400)
+    }
   }
 
   return (

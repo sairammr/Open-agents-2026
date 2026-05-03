@@ -1,6 +1,5 @@
 import Mosaic from '../Mosaic'
 import Tile from '../Tile'
-import IconButton from '../IconButton'
 import InstallCommand from '../InstallCommand'
 
 export default function CTASection() {
@@ -8,9 +7,8 @@ export default function CTASection() {
     <Mosaic cols="1fr" rows="auto">
       <Tile
         tone="ink"
-        pad={56}
-        style={{ minHeight: 360 }}
-        corner={<IconButton icon="arrow-right" size="lg" />}
+        pad={64}
+        style={{ minHeight: 380 }}
       >
         <div
           style={{

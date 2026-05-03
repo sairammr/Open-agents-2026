@@ -10,7 +10,7 @@ const LINES: { who: Who; text: string }[] = [
   { who: 'ok',   text: '✓ swap submitted · tx 0x4a2…f1' },
   { who: 'err',  text: '⚠ kill -9 12871   ← you killed it' },
   { who: 'mute', text: '$ node agent.js' },
-  { who: 'key',  text: '↻ resuming durable(rotate-eth-usdc)' },
+  { who: 'key',  text: '↻ resuming receipted(rotate-eth-usdc)' },
   { who: 'ok',   text: '✓ tx 0x4a2…f1 already mined — skip' },
   { who: 'ok',   text: '✓ done. one swap. zero double-spend.' },
 ]

@@ -1,17 +1,16 @@
 import Mosaic from '../Mosaic'
 import Tile from '../Tile'
-import Pill from '../Pill'
 import Doodle from '../Doodle'
 import type { ComponentProps } from 'react'
 
 type Tone = 'sage' | 'lavender' | 'peach' | 'butter'
 type DoodleName = ComponentProps<typeof Doodle>['name']
 
-const ITEMS: { tone: Tone; letter: string; word: string; tag: string; doodle: DoodleName; copy: string }[] = [
-  { tone: 'sage',     letter: 'A', word: 'Atomicity',   tag: 'all-or-nothing',     doodle: 'lock',     copy: 'Either the whole agent action commits, or none of it does. No half-rotated positions.' },
-  { tone: 'lavender', letter: 'C', word: 'Consistency', tag: 'invariants hold',    doodle: 'seeds',    copy: 'Pre/post invariants run inside the wrapper. Break one, the action aborts and rolls back.' },
-  { tone: 'peach',    letter: 'I', word: 'Isolation',   tag: 'no concurrent dups', doodle: 'isolated', copy: 'A lock key dedups identical actions across processes. Two agents, one transfer.' },
-  { tone: 'butter',   letter: 'D', word: 'Durability',  tag: 'kill -9 safe',       doodle: 'stack',    copy: 'Every step writes to a signed audit log. Restart from the exact step that crashed.' },
+const ITEMS: { tone: Tone; letter: string; word: string; fn: string; doodle: DoodleName; copy: string }[] = [
+  { tone: 'sage',     letter: 'A', word: 'Atomicity',   fn: 'saga()',       doodle: 'lock',     copy: 'Multi-step actions commit fully or roll back via compensations.' },
+  { tone: 'lavender', letter: 'C', word: 'Consistency', fn: 'invariant()',  doodle: 'seeds',    copy: 'Pre/post predicates enforced at action boundaries.' },
+  { tone: 'peach',    letter: 'I', word: 'Isolation',   fn: 'idempotent()', doodle: 'isolated', copy: 'In-flight tracking and dedup. No interleaving, no double-spend.' },
+  { tone: 'butter',   letter: 'D', word: 'Durability',  fn: 'receipted()',  doodle: 'stack',    copy: 'Signed chained receipts in 0G Storage. Crash-recoverable.' },
 ]
 
 const DOODLE_TONE: Record<Tone, Tone> = {
@@ -24,43 +23,62 @@ const DOODLE_TONE: Record<Tone, Tone> = {
 export default function WhySection() {
   return (
     <Mosaic cols="repeat(4, 1fr)" rows="auto">
-      {ITEMS.map((it, i) => (
+      {ITEMS.map((it) => (
         <Tile
           key={it.letter}
           tone={it.tone}
-          vlabel={it.tag}
-          vlabelSide="right"
-          pad={24}
-          corner={<Pill tone="solid">{`0${i + 1}`}</Pill>}
+          pad={28}
+          corner={<Doodle name={it.doodle} tone={DOODLE_TONE[it.tone]} size={44} />}
         >
           <div
             style={{
               flex: 1,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'space-between',
-              minHeight: 320,
+              justifyContent: 'flex-end',
+              minHeight: 340,
+              gap: 14,
             }}
           >
-            <Doodle name={it.doodle} tone={DOODLE_TONE[it.tone]} size={56} />
-            <div>
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: 88, lineHeight: 0.9, letterSpacing: '-0.02em' }}>
-                {it.letter}
-              </div>
-              <h3 className="tile-title" style={{ fontSize: 26, marginTop: 4 }}>{it.word}</h3>
-              <p
-                style={{
-                  fontFamily: 'var(--font-display), serif',
-                  fontSize: 14,
-                  lineHeight: 1.45,
-                  marginTop: 10,
-                  color: 'currentColor',
-                  opacity: 0.85,
-                }}
-              >
-                {it.copy}
-              </p>
+            <div
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(96px, 9vw, 132px)',
+                lineHeight: 0.85,
+                letterSpacing: '-0.03em',
+              }}
+            >
+              {it.letter}
             </div>
+            <h3
+              className="tile-title"
+              style={{ fontSize: 28, lineHeight: 1, margin: 0 }}
+            >
+              {it.word}
+            </h3>
+            <div
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: 13,
+                opacity: 0.65,
+                marginTop: 2,
+              }}
+            >
+              {it.fn}
+            </div>
+            <p
+              style={{
+                fontFamily: 'var(--font-display), serif',
+                fontSize: 14,
+                lineHeight: 1.5,
+                margin: 0,
+                color: 'currentColor',
+                opacity: 0.78,
+                maxWidth: '24ch',
+              }}
+            >
+              {it.copy}
+            </p>
           </div>
         </Tile>
       ))}
