@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Instrument_Serif, JetBrains_Mono, Inter } from 'next/font/google'
+import { Instrument_Serif, JetBrains_Mono, Inter, Italiana } from 'next/font/google'
 import './globals.css'
 import 'lenis/dist/lenis.css'
 import SmoothScroll from '@/components/SmoothScroll'
@@ -24,6 +24,13 @@ const ui = Inter({
   display: 'swap',
 })
 
+const letter = Italiana({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-letter',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'acid.ai — four functions. agents stop losing money.',
   description:
@@ -32,7 +39,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${mono.variable} ${ui.variable}`}>
+    <html lang="en" className={`${display.variable} ${mono.variable} ${ui.variable} ${letter.variable}`}>
       <body>
         <SmoothScroll />
         {children}

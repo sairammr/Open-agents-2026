@@ -1,10 +1,14 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Lenis from 'lenis'
 
 export default function SmoothScroll() {
+  const pathname = usePathname()
+
   useEffect(() => {
+    if (pathname?.startsWith('/pitch')) return
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduced) return
 
@@ -40,7 +44,7 @@ export default function SmoothScroll() {
       cancelAnimationFrame(raf)
       lenis.destroy()
     }
-  }, [])
+  }, [pathname])
 
   return null
 }

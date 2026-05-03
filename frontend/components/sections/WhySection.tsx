@@ -42,10 +42,11 @@ export default function WhySection() {
           >
             <div
               style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(96px, 9vw, 132px)',
-                lineHeight: 0.85,
-                letterSpacing: '-0.03em',
+                fontFamily: 'var(--font-letter), serif',
+                fontSize: 'clamp(120px, 11vw, 168px)',
+                lineHeight: 0.82,
+                letterSpacing: '-0.01em',
+                fontWeight: 400,
               }}
             >
               {it.letter}
