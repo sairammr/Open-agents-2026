@@ -61,7 +61,7 @@ export default function SlideTitle() {
                 letterSpacing: '-0.04em',
               }}
             >
-              acid<span style={{ color: 'var(--ink-mute)' }}>.ai</span>
+              <span style={{ color: 'var(--ink-mute)' }}>open</span>acid
             </h1>
 
             <div
@@ -113,7 +113,7 @@ export default function SlideTitle() {
             >
               Postgres taught your backend ACID semantics.
               <br />
-              <span style={{ fontStyle: 'normal', color: 'var(--ink)' }}>acid.ai</span> teaches your agents.
+              <span style={{ fontStyle: 'normal', color: 'var(--ink)' }}>openacid</span> teaches your agents.
             </p>
 
             <div
@@ -125,8 +125,8 @@ export default function SlideTitle() {
                 textAlign: 'right',
               }}
             >
-              <div>npm i acid</div>
-              <div style={{ opacity: 0.7 }}>github.com/acid-lib</div>
+              <div>npm i openacid</div>
+              <div style={{ opacity: 0.7 }}>github.com/openacid</div>
             </div>
           </div>
         </div>

@@ -121,7 +121,7 @@ function FnGlyph({ name }: { name: Glyph }) {
 export default function SlideSolution() {
   return (
     <Mosaic cols="1fr 1fr 1fr 1fr" rows="auto auto 1fr" style={{ height: '100%' }}>
-      <Tile brand="acid.ai" pad={40} style={{ gridColumn: '1 / -1' }}>
+      <Tile brand="openacid" pad={40} style={{ gridColumn: '1 / -1' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 20, gap: 24 }}>
           <div
             style={{
@@ -163,7 +163,7 @@ export default function SlideSolution() {
             flexWrap: 'wrap',
           }}
         >
-          <span>npm i acid</span>
+          <span>npm i openacid</span>
           <span>~</span>
           <span>4 primitives · 1 nested call</span>
           <span>~</span>

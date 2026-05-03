@@ -32,7 +32,7 @@ const letter = Italiana({
 })
 
 export const metadata: Metadata = {
-  title: 'acid.ai — four functions. agents stop losing money.',
+  title: 'openacid — four functions. agents stop losing money.',
   description:
     'Atomicity · Consistency · Isolation · Durability — for AI agents. Wrap your agent action in four nested primitives. It becomes crash-safe, dedup\'d, invariant-enforced, and signs its own audit trail.',
 }

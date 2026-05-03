@@ -56,7 +56,7 @@ export default function Tile({
           }}
         >
           <Asterisk size={13} reverse={tone === 'ink' || tone === 'code'} />
-          <span>{brand === true ? 'acid.ai' : brand}</span>
+          <span>{brand === true ? 'openacid' : brand}</span>
         </div>
       )}
       {corner && <div className={`tile-corner ${cornerPos}`}>{corner}</div>}

@@ -96,7 +96,7 @@ export default function PitchDeck() {
 
       <div className="deck-chrome">
         <div className="deck-chrome-left">
-          <span className="deck-brand">acid.ai</span>
+          <span className="deck-brand">openacid</span>
           <span className="deck-sep">/</span>
           <span className="deck-stage">{SLIDES[i].label}</span>
         </div>

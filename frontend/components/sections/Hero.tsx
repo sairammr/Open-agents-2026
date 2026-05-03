@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <Mosaic cols="1.45fr 1fr" rows="auto 1fr">
       {/* Headline — left column, spans both rows */}
-      <Tile brand="acid.ai" pad={32} style={{ gridRow: 'span 2' }}>
+      <Tile brand="openacid" pad={32} style={{ gridRow: 'span 2' }}>
         <div
           style={{
             flex: 1,

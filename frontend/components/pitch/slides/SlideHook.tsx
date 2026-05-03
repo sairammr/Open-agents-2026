@@ -48,7 +48,7 @@ function DoubleTxGlyph() {
 export default function SlideHook() {
   return (
     <Mosaic cols="1.6fr 1fr" rows="auto 1fr auto" style={{ height: '100%' }}>
-      <Tile brand="acid.ai" pad={48} style={{ gridColumn: '1 / -1' }}>
+      <Tile brand="openacid" pad={48} style={{ gridColumn: '1 / -1' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 22 }}>
           <span className="it" style={{ fontSize: 15, color: 'var(--ink-mute)' }}>
             ¶ a recurring bug class with no productized solution
