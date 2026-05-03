@@ -6,15 +6,11 @@ const BUILDERS = [
   {
     name: 'Sairam X',
     handle: '@sairammr1',
-    role: 'systems · primitives',
-    note: 'Designs the four wrappers and the composition validator. Lives inside packages/core.',
     accent: 'sage' as const,
   },
   {
     name: 'Romario Kavin',
     handle: '@romariokavin',
-    role: 'chain · agent',
-    note: 'Owns the example agent, viem adapter, and ReceiptRegistry on 0G Chain.',
     accent: 'lavender' as const,
   },
 ]
@@ -108,68 +104,34 @@ export default function SlideTeam() {
               </svg>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16, flexWrap: 'wrap' }}>
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(34px, 3.6vw, 52px)',
-                    lineHeight: 1,
-                    margin: 0,
-                    fontWeight: 400,
-                    letterSpacing: '-0.01em',
-                  }}
-                >
-                  {b.name}
-                </h3>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 15,
-                    color: 'var(--ink-mute)',
-                    letterSpacing: '-0.01em',
-                  }}
-                >
-                  {b.handle}
-                </span>
-              </div>
-
-              <div className="rule" />
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <span
-                  style={{
-                    width: 10,
-                    height: 10,
-                    background: `var(--acc-${b.accent})`,
-                    border: '1.5px solid var(--ink)',
-                    flexShrink: 0,
-                  }}
-                />
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 13,
-                    color: 'var(--ink-soft)',
-                    letterSpacing: '0.04em',
-                  }}
-                >
-                  {b.role}
-                </span>
-              </div>
-
-              <p
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <h3
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 18,
-                  lineHeight: 1.45,
-                  color: 'var(--ink-soft)',
+                  fontSize: 'clamp(34px, 3.6vw, 52px)',
+                  lineHeight: 1,
                   margin: 0,
-                  maxWidth: '34ch',
+                  fontWeight: 400,
+                  letterSpacing: '-0.01em',
                 }}
               >
-                {b.note}
-              </p>
+                {b.name}
+              </h3>
+              <a
+                href={`https://x.com/${b.handle.replace(/^@/, '')}`}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 15,
+                  color: 'var(--ink-mute)',
+                  letterSpacing: '-0.01em',
+                  textDecoration: 'none',
+                  alignSelf: 'flex-start',
+                }}
+              >
+                {b.handle}
+              </a>
             </div>
           </div>
         </Tile>

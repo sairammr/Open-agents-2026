@@ -224,14 +224,14 @@ function ArchDiagram() {
           ReceiptRegistry · idempotency anchor
         </text>
         <text x="734" y="352" fontFamily="var(--font-mono)" fontSize="13" letterSpacing="0.06em" fill="var(--ink-mute)">
-          ⌑ chainId 16600 · viem adapter
+          ⌑ Galileo · chainId 16602
         </text>
       </g>
-      {/* arrow: idempotent → Chain (curve from right of peach box) */}
+      {/* arrow: idempotent → Chain (lands in the gap between title and italic, mirroring the Storage arrow) */}
       <g>
-        <path d="M 430 360 C 540 360, 620 320, 700 310" fill="none" stroke="var(--ink)" strokeWidth="2.6" markerEnd="url(#arr-ink)" />
+        <path d="M 430 360 C 540 360, 620 320, 700 290" fill="none" stroke="var(--ink)" strokeWidth="2.6" markerEnd="url(#arr-ink)" />
         <circle cx="430" cy="360" r="5" fill="var(--ink)" />
-        <text x="560" y="334" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="14" fill="var(--ink)" letterSpacing="0.04em">
+        <text x="560" y="320" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="14" fill="var(--ink)" letterSpacing="0.04em">
           claims dedup slot
         </text>
       </g>

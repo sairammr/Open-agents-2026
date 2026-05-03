@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { copyText } from '@/lib/copy'
 
-const SRC = `import { saga, invariant, idempotent, receipted } from 'openacid';
+const SRC = `import { saga, invariant, idempotent, receipted } from '@openacid/acid';
 
 // kill -9 me. I won't double-spend.
 const rebalance = receipted({ storage, signer },
@@ -57,7 +57,7 @@ export default function CodeBlock() {
           </svg>
         )}
       </button>
-      {K('import')} {'{ '}{F('saga')}{', '}{F('invariant')}{', '}{F('idempotent')}{', '}{F('receipted')}{' } '}{K('from')} {S("'openacid'")};{'\n\n'}
+      {K('import')} {'{ '}{F('saga')}{', '}{F('invariant')}{', '}{F('idempotent')}{', '}{F('receipted')}{' } '}{K('from')} {S("'@openacid/acid'")};{'\n\n'}
       {C("// kill -9 me. I won't double-spend.")}{'\n'}
       {K('const')} rebalance = {F('receipted')}{'({ storage, signer },\n  '}
       {F('invariant')}{'({\n    pre:  '}{F('walletBalanceOK')}{',\n    post: '}{F('noOrphanAllowances')}{',\n  },\n  '}

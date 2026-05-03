@@ -7,7 +7,7 @@ export default function InstallCommand() {
   const [copied, setCopied] = useState(false)
 
   async function copy() {
-    const ok = await copyText('npm install openacid')
+    const ok = await copyText('npm i @openacid/acid')
     if (ok) {
       setCopied(true)
       setTimeout(() => setCopied(false), 1400)
@@ -18,7 +18,7 @@ export default function InstallCommand() {
     <div className="install" role="group" aria-label="install command">
       <div className="prompt">
         <span className="dollar">$</span>
-        <span>npm install openacid</span>
+        <span>npm i @openacid/acid</span>
       </div>
       <button className="copy" onClick={copy} aria-label="copy install command">
         {copied ? (

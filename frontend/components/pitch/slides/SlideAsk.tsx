@@ -7,7 +7,7 @@ const ASKS = [
   {
     tone: 'sage' as const,
     head: 'integrators',
-    body: 'OpenClaw · ElizaOS · CrewAI — wire openacid in as a first-class capability so every new agent ships with durability on day one.',
+    body: 'ElizaOS · LangChain · CrewAI — wire openacid in as a first-class capability so every new agent ships with durability on day one.',
   },
   {
     tone: 'lavender' as const,
@@ -206,10 +206,10 @@ export default function SlideAsk() {
             }}
           >
             <span>
-              <span style={{ color: 'var(--code-mute)' }}>$</span> npm i openacid
+              <span style={{ color: 'var(--code-mute)' }}>$</span> npm i @openacid/acid
             </span>
             <span style={{ color: 'var(--code-mute)' }}>~</span>
-            <span>github.com/openacid</span>
+            <span>github.com/romariokavin1/acid</span>
             <span style={{ color: 'var(--code-mute)' }}>~</span>
             <span>openacid.eth</span>
           </div>

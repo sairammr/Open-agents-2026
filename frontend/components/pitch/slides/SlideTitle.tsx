@@ -125,8 +125,8 @@ export default function SlideTitle() {
                 textAlign: 'right',
               }}
             >
-              <div>npm i openacid</div>
-              <div style={{ opacity: 0.7 }}>github.com/openacid</div>
+              <div>npm i @openacid/acid</div>
+              <div style={{ opacity: 0.7 }}>github.com/romariokavin1/acid</div>
             </div>
           </div>
         </div>

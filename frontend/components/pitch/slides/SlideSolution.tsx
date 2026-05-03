@@ -163,7 +163,7 @@ export default function SlideSolution() {
             flexWrap: 'wrap',
           }}
         >
-          <span>npm i openacid</span>
+          <span>npm i @openacid/acid</span>
           <span>~</span>
           <span>4 primitives · 1 nested call</span>
           <span>~</span>

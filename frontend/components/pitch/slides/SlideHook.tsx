@@ -12,24 +12,23 @@ function DoubleTxGlyph() {
       fill="none"
       aria-hidden
     >
-      <rect x="6" y="8" width="140" height="46" stroke="var(--acc-peach-ink)" strokeWidth="2" fill="var(--acc-peach)" />
-      <rect x="32" y="34" width="140" height="46" stroke="var(--acc-peach-ink)" strokeWidth="2" fill="var(--acc-peach)" />
-      <text x="14" y="28" fontFamily="var(--font-mono)" fontSize="11" fill="var(--acc-peach-ink)" letterSpacing="0.06em">
+      <rect x="4" y="6" width="124" height="40" stroke="var(--acc-peach-ink)" strokeWidth="2" fill="var(--acc-peach)" />
+      <rect x="36" y="42" width="124" height="40" stroke="var(--acc-peach-ink)" strokeWidth="2" fill="var(--acc-peach)" />
+      <text x="12" y="22" fontFamily="var(--font-mono)" fontSize="11" fill="var(--acc-peach-ink)" letterSpacing="0.06em">
         TX 0x..a3f
       </text>
-      <text x="14" y="46" fontFamily="var(--font-mono)" fontSize="9" fill="var(--acc-peach-ink)" opacity="0.7" letterSpacing="0.06em">
+      <text x="12" y="38" fontFamily="var(--font-mono)" fontSize="9" fill="var(--acc-peach-ink)" opacity="0.7" letterSpacing="0.06em">
         nonce 42 · 0.4 ETH
       </text>
-      <text x="40" y="54" fontFamily="var(--font-mono)" fontSize="11" fill="var(--acc-peach-ink)" letterSpacing="0.06em">
+      <text x="44" y="58" fontFamily="var(--font-mono)" fontSize="11" fill="var(--acc-peach-ink)" letterSpacing="0.06em">
         TX 0x..a3f
       </text>
-      <text x="40" y="72" fontFamily="var(--font-mono)" fontSize="9" fill="var(--acc-peach-ink)" opacity="0.7" letterSpacing="0.06em">
+      <text x="44" y="74" fontFamily="var(--font-mono)" fontSize="9" fill="var(--acc-peach-ink)" opacity="0.7" letterSpacing="0.06em">
         nonce 42 · 0.4 ETH
       </text>
-      <line x1="158" y1="20" x2="190" y2="34" stroke="var(--acc-peach-ink)" strokeWidth="2" />
-      <line x1="178" y1="46" x2="190" y2="34" stroke="var(--acc-peach-ink)" strokeWidth="2" />
-      <line x1="184" y1="42" x2="196" y2="32" stroke="var(--acc-peach-ink)" strokeWidth="1.4" />
-      <line x1="184" y1="38" x2="200" y2="34" stroke="var(--acc-peach-ink)" strokeWidth="1.4" />
+      <line x1="170" y1="56" x2="200" y2="44" stroke="var(--acc-peach-ink)" strokeWidth="2" />
+      <line x1="180" y1="68" x2="206" y2="56" stroke="var(--acc-peach-ink)" strokeWidth="1.6" />
+      <line x1="184" y1="50" x2="208" y2="40" stroke="var(--acc-peach-ink)" strokeWidth="1.4" />
       <text
         x="110"
         y="106"
