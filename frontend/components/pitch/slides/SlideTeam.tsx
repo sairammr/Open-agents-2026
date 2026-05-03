@@ -1,26 +1,30 @@
 import Mosaic from '../../Mosaic'
 import Tile from '../../Tile'
 import Pill from '../../Pill'
+import Asterisk from '../../Asterisk'
 
 const BUILDERS = [
   {
     name: 'Sairam X',
     handle: '@sairammr1',
+    role: 'systems · primitives',
     accent: 'sage' as const,
   },
   {
     name: 'Romario Kavin',
     handle: '@romariokavin',
+    role: 'protocol · agent',
     accent: 'lavender' as const,
   },
 ]
 
 export default function SlideTeam() {
   return (
-    <Mosaic cols="1fr 1fr" rows="auto 1fr" style={{ height: '100%' }}>
-      <Tile pad={48} style={{ gridColumn: '1 / -1' }}>
+    <Mosaic cols="1fr 1fr" rows="auto 1fr auto" style={{ height: '100%' }}>
+      {/* Header — close vibe */}
+      <Tile pad={44} style={{ gridColumn: '1 / -1' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24 }}>
-          <div>
+          <div style={{ flex: 1 }}>
             <div
               style={{
                 fontFamily: 'var(--font-display)',
@@ -31,26 +35,27 @@ export default function SlideTeam() {
                 letterSpacing: '0.02em',
               }}
             >
-              ¶ the builders
+              ¶ shipped by
             </div>
             <h2
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(36px, 5.6vmin, 72px)',
-                lineHeight: 0.98,
+                fontSize: 'clamp(48px, 6vmin, 88px)',
+                lineHeight: 0.96,
                 margin: 0,
                 fontWeight: 400,
-                letterSpacing: '-0.015em',
+                letterSpacing: '-0.02em',
                 maxWidth: '20ch',
               }}
             >
-              Two engineers shipping <span style={{ fontStyle: 'italic' }}>one</span> small library.
+              Two engineers. <span style={{ fontStyle: 'italic' }}>One</span> small library.
             </h2>
           </div>
-          <Pill tone="ghost" mono>team of two</Pill>
+          <Pill tone="ghost" mono>thanks</Pill>
         </div>
       </Tile>
 
+      {/* Builder cards */}
       {BUILDERS.map((b) => (
         <Tile key={b.handle} pad={32} style={{ gridRow: 2, minHeight: 0 }}>
           <div
@@ -104,11 +109,11 @@ export default function SlideTeam() {
               </svg>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <h3
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(34px, 3.6vw, 52px)',
+                  fontSize: 'clamp(30px, 3.4vw, 48px)',
                   lineHeight: 1,
                   margin: 0,
                   fontWeight: 400,
@@ -117,25 +122,100 @@ export default function SlideTeam() {
               >
                 {b.name}
               </h3>
+              <div
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 12,
+                  letterSpacing: '0.06em',
+                  color: 'var(--ink-mute)',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {b.role}
+              </div>
               <a
                 href={`https://x.com/${b.handle.replace(/^@/, '')}`}
                 target="_blank"
                 rel="noreferrer"
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 15,
-                  color: 'var(--ink-mute)',
+                  fontSize: 14,
+                  color: 'var(--ink)',
                   letterSpacing: '-0.01em',
                   textDecoration: 'none',
                   alignSelf: 'flex-start',
+                  borderBottom: '1px solid var(--ink-faint)',
+                  paddingBottom: 1,
                 }}
               >
-                {b.handle}
+                {b.handle} ↗
               </a>
             </div>
           </div>
         </Tile>
       ))}
+
+      {/* Closing strip — install · github · ens · questions */}
+      <Tile tone="ink" pad={36} style={{ gridColumn: '1 / -1', gridRow: 3 }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 32,
+            flexWrap: 'wrap',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            <Asterisk size={20} reverse />
+            <div>
+              <div
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontStyle: 'italic',
+                  fontSize: 'clamp(24px, 2.8vmin, 36px)',
+                  color: 'var(--paper)',
+                  letterSpacing: '-0.005em',
+                  lineHeight: 1.1,
+                }}
+              >
+                questions?
+              </div>
+              <div
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 12,
+                  color: 'var(--code-mute)',
+                  marginTop: 4,
+                  letterSpacing: '0.06em',
+                }}
+              >
+                ETHGLOBAL · OPEN AGENTS · MMXXVI
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: 'flex',
+              gap: 28,
+              fontFamily: 'var(--font-mono)',
+              fontSize: 14,
+              color: 'var(--code-fg)',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+            }}
+          >
+            <span>
+              <span style={{ color: 'var(--code-mute)' }}>$</span> npm i @openacid/acid
+            </span>
+            <span style={{ color: 'var(--code-mute)' }}>~</span>
+            <span>github.com/romariokavin1/acid</span>
+            <span style={{ color: 'var(--code-mute)' }}>~</span>
+            <span>openacid.eth</span>
+          </div>
+        </div>
+      </Tile>
     </Mosaic>
   )
 }

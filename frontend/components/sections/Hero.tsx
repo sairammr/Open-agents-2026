@@ -53,7 +53,9 @@ export default function Hero() {
             </p>
             <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
               <InstallCommand />
-              <button className="btn ghost">Read the docs</button>
+              <a href="/docs" style={{ textDecoration: 'none' }}>
+                <button className="btn ghost">Read the docs</button>
+              </a>
             </div>
           </div>
         </div>

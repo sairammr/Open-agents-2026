@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import SlideTitle from './slides/SlideTitle'
-import SlideTeam from './slides/SlideTeam'
 import SlideHook from './slides/SlideHook'
 import SlideProblem from './slides/SlideProblem'
 import SlideSolution from './slides/SlideSolution'
@@ -10,17 +9,31 @@ import SlideArchitecture from './slides/SlideArchitecture'
 import SlideCode from './slides/SlideCode'
 import SlideDemoTitle from './slides/SlideDemoTitle'
 import SlideDemo from './slides/SlideDemo'
+import SlideScale from './slides/SlideScale'
+import SlideAsk from './slides/SlideAsk'
+import SlideTeam from './slides/SlideTeam'
 
+// Pitch arc:
+//   1. open       — wordmark + tagline + ETHGlobal stamp
+//   2-3. wound    — the bug, the bug class
+//   4. answer     — the four primitives
+//   5-6. proof    — code + architecture
+//   7-8. demo     — interstitial + scripted scenes
+//   9. why-now    — the wave, scale, no competitor
+//  10. ask        — integrators · pilots · contributors
+//  11. close      — the two builders, contacts
 const SLIDES = [
   { id: 'title',      label: 'title',            Component: SlideTitle },
-  { id: 'team',       label: 'the builders',     Component: SlideTeam },
   { id: 'hook',       label: 'the bug',          Component: SlideHook },
   { id: 'problem',    label: 'the bug class',    Component: SlideProblem },
   { id: 'solution',   label: 'four functions',   Component: SlideSolution },
-  { id: 'arch',       label: 'the architecture', Component: SlideArchitecture },
   { id: 'code',       label: 'the api',          Component: SlideCode },
+  { id: 'arch',       label: 'the architecture', Component: SlideArchitecture },
   { id: 'demo-title', label: 'demo',             Component: SlideDemoTitle },
   { id: 'demo',       label: 'the proof',        Component: SlideDemo },
+  { id: 'scale',      label: 'why now',          Component: SlideScale },
+  { id: 'ask',        label: 'what we need',     Component: SlideAsk },
+  { id: 'team',       label: 'the builders',     Component: SlideTeam },
 ] as const
 
 const TRANSITION_MS = 520
