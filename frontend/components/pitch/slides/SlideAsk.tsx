@@ -17,7 +17,7 @@ const ASKS = [
   {
     tone: 'butter' as const,
     head: 'contributors',
-    body: 'adapters for ethers, Solana, redis · TEE-attested receipts · reorg-aware durability · the conformance suite is the contract.',
+    body: 'storageConformanceCases is the contract — write an adapter, run the suite, prove the four primitives hold. Then: ethers, Solana, redis · TEE-attested receipts · reorg-aware durability.',
   },
 ]
 

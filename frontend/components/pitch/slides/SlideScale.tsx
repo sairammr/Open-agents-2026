@@ -154,7 +154,7 @@ export default function SlideScale() {
           }}
         >
           <span className="it" style={{ color: 'var(--acc-sage-ink)', fontSize: 14, letterSpacing: '0.06em', opacity: 0.75 }}>
-            today
+            today · shipped
           </span>
           <div>
             <div
@@ -166,13 +166,17 @@ export default function SlideScale() {
                 letterSpacing: '-0.015em',
               }}
             >
-              one agent
+              5 packages
             </div>
             <div
               className="tile-meta"
-              style={{ color: 'var(--acc-sage-ink)', opacity: 0.8, marginTop: 10, fontSize: 16, lineHeight: 1.4 }}
+              style={{ color: 'var(--acc-sage-ink)', opacity: 0.85, marginTop: 10, fontSize: 15, lineHeight: 1.5 }}
             >
-              survives a kill -9 · five txs, exactly five
+              @openacid/* · 4 versions on npm
+              <br />
+              117 vitest (10 live on 0G) · 8 forge
+              <br />
+              ReceiptRegistry on Galileo · openacid.eth on Sepolia
             </div>
           </div>
         </div>

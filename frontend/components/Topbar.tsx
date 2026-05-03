@@ -9,10 +9,10 @@ export default function Topbar() {
           <a href="#why">Why</a>
           <a href="#proof">Proof</a>
           <a href="#docs">Docs</a>
-          <a href="#github">GitHub ↗</a>
+          <a href="https://github.com/romariokavin1/acid" target="_blank" rel="noreferrer">GitHub ↗</a>
         </nav>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-          <span className="pill ghost mono" style={{ whiteSpace: 'nowrap' }}>v1.0.0</span>
+          <span className="pill ghost mono" style={{ whiteSpace: 'nowrap' }}>v0.2.0</span>
 
         </div>
       </div>

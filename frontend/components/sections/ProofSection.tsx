@@ -38,12 +38,27 @@ export default function ProofSection() {
                 maxWidth: 420,
               }}
             >
-              Every step inside <code style={{ fontFamily: 'var(--font-mono)', fontSize: 14 }}>receipted()</code> is signed and persisted to 0G Storage. On restart, the wrapper reconciles via chain query and skips anything already mined.
+              Every step inside <code style={{ fontFamily: 'var(--font-mono)', fontSize: 14 }}>receipted()</code> is signed, persisted to 0G Storage, and mirrored to <code style={{ fontFamily: 'var(--font-mono)', fontSize: 14 }}>openacid.eth</code>. On restart, the wrapper reconciles via chain query and skips anything already mined.
             </p>
+            <div
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: 12,
+                color: 'var(--ink-mute)',
+                marginTop: 16,
+                lineHeight: 1.6,
+                letterSpacing: '0.02em',
+              }}
+            >
+              <div>
+                <span style={{ color: 'var(--ink-faint)' }}>$</span> cast call <span style={{ color: 'var(--ink)' }}>openacid.eth</span> &quot;text(...,&apos;receipt.latest&apos;)&quot;
+              </div>
+              <div style={{ opacity: 0.7 }}>// no library install · any ENS resolver</div>
+            </div>
             <div style={{ display: 'flex', gap: 8, marginTop: 18, flexWrap: 'wrap' }}>
               <Pill tone="lavender">crash-safe</Pill>
               <Pill tone="sage">idempotent</Pill>
-              <Pill tone="peach">audited</Pill>
+              <Pill tone="peach">117 vitest · 8 forge</Pill>
               <Pill tone="butter">signed log</Pill>
             </div>
           </div>

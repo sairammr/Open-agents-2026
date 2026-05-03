@@ -79,10 +79,10 @@ export default function Hero() {
                 fontSize: 11,
               }}
             >
-              v 1.0
+              live
             </span>
             <span className="it" style={{ fontSize: 12, color: 'var(--acc-lav-ink)', opacity: 0.7 }}>
-              just shipped
+              0G Galileo · Sepolia ENS
             </span>
           </div>
           <div>
@@ -102,9 +102,9 @@ export default function Hero() {
             </div>
             <div
               className="tile-meta"
-              style={{ color: 'var(--acc-lav-ink)', opacity: 0.7, fontSize: 12, marginTop: 8 }}
+              style={{ color: 'var(--acc-lav-ink)', opacity: 0.7, fontSize: 12, marginTop: 8, lineHeight: 1.5 }}
             >
-              four primitives ~ one library
+              ReceiptRegistry deployed · openacid.eth mirrors every receipt
             </div>
           </div>
         </div>

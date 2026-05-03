@@ -82,7 +82,8 @@ export default function SlideArchitecture() {
             }}
           >
             action <span className="tilde">~</span> saga checkpoint <span className="tilde">~</span> invariant check <span className="tilde">~</span> idempotency claim <span className="tilde">~</span>{' '}
-            <span style={{ color: 'var(--acc-butter)' }}>signed receipt to 0G Storage</span>
+            <span style={{ color: 'var(--acc-butter)' }}>signed receipt to 0G Storage</span> <span className="tilde">~</span>{' '}
+            <span style={{ color: 'var(--acc-lavender)' }}>openacid.eth mirror</span>
           </span>
           <span
             style={{
@@ -221,10 +222,10 @@ function ArchDiagram() {
           0G Chain
         </text>
         <text x="734" y="308" fontFamily="var(--font-display)" fontStyle="italic" fontSize="17" fill="var(--ink-soft)">
-          ReceiptRegistry · idempotency anchor
+          ReceiptRegistry · live on Galileo
         </text>
         <text x="734" y="352" fontFamily="var(--font-mono)" fontSize="13" letterSpacing="0.06em" fill="var(--ink-mute)">
-          ⌑ Galileo · chainId 16602
+          ⌑ 0xd3E627…0D1C · chainId 16602
         </text>
       </g>
       {/* arrow: idempotent → Chain (lands in the gap between title and italic, mirroring the Storage arrow) */}

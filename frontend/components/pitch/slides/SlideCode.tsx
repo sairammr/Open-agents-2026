@@ -43,18 +43,18 @@ export default function SlideCode() {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 22 }}>
           <div>
             <span className="it" style={{ fontSize: 13, letterSpacing: '0.06em' }}>
-              ¶ key insight
+              ¶ why this order
             </span>
             <p
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 26,
+                fontSize: 24,
                 lineHeight: 1.4,
                 color: 'var(--ink-soft)',
                 margin: '14px 0 0',
               }}
             >
-              Higher-order functions that wrap functions and return functions. They <span style={{ fontStyle: 'italic' }}>compose freely</span>.
+              Outer-to-inner is <span style={{ fontStyle: 'italic' }}>semantic</span>. Inversions are rejected at construction.
             </p>
           </div>
 
@@ -67,14 +67,14 @@ export default function SlideCode() {
               margin: 0,
               display: 'flex',
               flexDirection: 'column',
-              gap: 16,
+              gap: 14,
             }}
           >
             {[
-              ['receipted', 'outermost — every call gets a signed receipt, including failures'],
-              ['invariant', 'pre/post predicates fire at action boundaries'],
-              ['idempotent', 'in-flight tracking + chain-aware dedup'],
-              ['saga', 'approve → swap → stake, compensations in reverse'],
+              ['receipted', 'outermost — every attempt gets a signed receipt, even invariant rejections'],
+              ['invariant', 'pre rejects before dedup · post checks after the saga commits'],
+              ['idempotent', 'dedup only on admissible calls · in-flight + completed cache'],
+              ['saga', 'innermost — the smallest transactional unit · compensations in reverse'],
             ].map(([fn, body]) => (
               <li key={fn} style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
                 <code
@@ -94,7 +94,7 @@ export default function SlideCode() {
                 <span
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 17,
+                    fontSize: 16,
                     color: 'var(--ink-soft)',
                     lineHeight: 1.4,
                   }}
@@ -115,7 +115,7 @@ export default function SlideCode() {
               paddingTop: 14,
             }}
           >
-            // composition order matters · validated at construction
+            // higher-order functions · compose freely · validated at construction
           </div>
         </div>
       </Tile>
