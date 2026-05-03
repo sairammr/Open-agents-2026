@@ -3,18 +3,25 @@ import Tile from '../../Tile'
 import Pill from '../../Pill'
 import Asterisk from '../../Asterisk'
 
-const BUILDERS = [
+const BUILDERS: {
+  name: string
+  handle: string
+  role: string
+  accent: 'sage' | 'lavender'
+  photo?: string
+}[] = [
   {
-    name: 'Sairam X',
+    name: 'Sairam M R',
     handle: '@sairammr1',
     role: 'systems · primitives',
-    accent: 'sage' as const,
+    accent: 'sage',
+    photo: '/sairam.jpeg',
   },
   {
     name: 'Romario Kavin',
     handle: '@romariokavin',
     role: 'protocol · agent',
-    accent: 'lavender' as const,
+    accent: 'lavender',
   },
 ]
 
@@ -63,53 +70,69 @@ export default function SlideTeam() {
               flex: 1,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'space-between',
-              gap: 'clamp(14px, 2vh, 24px)',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 'clamp(18px, 3vh, 32px)',
               minHeight: 0,
+              textAlign: 'center',
             }}
           >
             <div
               style={{
-                width: '100%',
-                aspectRatio: '4 / 3',
+                width: '60%',
+                maxWidth: 300,
+                aspectRatio: '1 / 1',
                 background: `var(--acc-${b.accent})`,
                 position: 'relative',
                 overflow: 'hidden',
                 border: '2px solid var(--ink)',
               }}
               role="img"
-              aria-label={`${b.name} portrait placeholder`}
+              aria-label={b.photo ? `${b.name} portrait` : `${b.name} portrait placeholder`}
             >
-              <svg
-                viewBox="0 0 200 150"
-                preserveAspectRatio="xMidYMid slice"
-                style={{ width: '100%', height: '100%', display: 'block' }}
-                aria-hidden
-              >
-                <defs>
-                  <pattern id={`hatch-${b.accent}`} patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
-                    <line x1="0" y1="0" x2="0" y2="8" stroke="var(--ink)" strokeWidth="1" opacity="0.18" />
-                  </pattern>
-                </defs>
-                <rect width="200" height="150" fill={`url(#hatch-${b.accent})`} />
-                <circle cx="100" cy="62" r="22" fill="var(--ink)" opacity="0.85" />
-                <path d="M 60 130 Q 100 92, 140 130 Z" fill="var(--ink)" opacity="0.85" />
-                <text
-                  x="100"
-                  y="146"
-                  textAnchor="middle"
-                  fontFamily="var(--font-mono), monospace"
-                  fontSize="7"
-                  fill="var(--ink)"
-                  opacity="0.5"
-                  letterSpacing="0.2em"
+              {b.photo ? (
+                <img
+                  src={b.photo}
+                  alt={`${b.name} portrait`}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+              ) : (
+                <svg
+                  viewBox="0 0 240 240"
+                  preserveAspectRatio="xMidYMid slice"
+                  style={{ width: '100%', height: '100%', display: 'block' }}
+                  aria-hidden
                 >
-                  PORTRAIT · PLACEHOLDER
-                </text>
-              </svg>
+                  <defs>
+                    <pattern id={`hatch-${b.accent}`} patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+                      <line x1="0" y1="0" x2="0" y2="8" stroke="var(--ink)" strokeWidth="1" opacity="0.18" />
+                    </pattern>
+                  </defs>
+                  <rect width="240" height="240" fill={`url(#hatch-${b.accent})`} />
+                  <circle cx="120" cy="98" r="32" fill="var(--ink)" opacity="0.85" />
+                  <path d="M 56 220 Q 120 156, 184 220 L 184 240 L 56 240 Z" fill="var(--ink)" opacity="0.85" />
+                  <text
+                    x="120"
+                    y="232"
+                    textAnchor="middle"
+                    fontFamily="var(--font-mono), monospace"
+                    fontSize="7"
+                    fill="var(--paper)"
+                    opacity="0.6"
+                    letterSpacing="0.2em"
+                  >
+                    PORTRAIT
+                  </text>
+                </svg>
+              )}
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
               <h3
                 style={{
                   fontFamily: 'var(--font-display)',
@@ -118,6 +141,7 @@ export default function SlideTeam() {
                   margin: 0,
                   fontWeight: 400,
                   letterSpacing: '-0.01em',
+                  textAlign: 'center',
                 }}
               >
                 {b.name}
@@ -143,9 +167,6 @@ export default function SlideTeam() {
                   color: 'var(--ink)',
                   letterSpacing: '-0.01em',
                   textDecoration: 'none',
-                  alignSelf: 'flex-start',
-                  borderBottom: '1px solid var(--ink-faint)',
-                  paddingBottom: 1,
                 }}
               >
                 {b.handle} ↗
