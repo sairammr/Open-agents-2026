@@ -44,6 +44,11 @@
 
 * { box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+}
+
 html, body {
   margin: 0; padding: 0;
   background: var(--ink);
@@ -410,6 +415,7 @@ html, body {
 .topbar nav a:hover::after { transform: scaleX(1); }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .spin-asterisk, .doodle, .check-draw path, .cursor { animation: none !important; }
   .icon-btn svg, .topbar nav a::after { transition: none !important; }
 }
