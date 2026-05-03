@@ -2,18 +2,344 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   ACID — Editorial design tokens
+   Cream paper, near-black ink, four muted jewel accents.
+   ============================================================ */
+
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 9, 9, 11;
+  /* Paper */
+  --paper:        #E6E7DF;
+  --paper-warm:   #ECEAE0;
+  --paper-pure:   #F2F2EC;
+
+  /* Ink */
+  --ink:          #0E0E0C;
+  --ink-soft:     #2A2A26;
+  --ink-mute:     #6B6B63;
+  --ink-faint:    #A8A89F;
+
+  /* Accent jewels — A·C·I·D */
+  --acc-sage:     #A8C9A1;  --acc-sage-ink: #2F4A2A;
+  --acc-lavender: #C9B8E5;  --acc-lav-ink:  #3A2E55;
+  --acc-peach:    #F5A574;  --acc-peach-ink:#5A2E10;
+  --acc-butter:   #F0D060;  --acc-butter-ink:#4A3A0A;
+
+  /* Code listing */
+  --code-bg:   #14140F;
+  --code-fg:   #E8E5D8;
+  --code-mute: #7A7868;
+  --code-key:  #C9B8E5;
+  --code-str:  #A8C9A1;
+  --code-num:  #F5A574;
+  --code-fn:   #F0D060;
+
+  /* Borders */
+  --bw-frame: 3px;
+  --bw-rule:  1px;
+  --bw-thick: 2px;
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--ink);
+  color: var(--ink);
+  font-family: var(--font-display), 'Iowan Old Style', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+#root, body > main { background: var(--ink); }
+
+/* =============== Wordmark =============== */
+.wordmark {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-display), serif;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: inherit;
+  text-decoration: none;
 }
+.wordmark img { display: block; }
+
+/* =============== Topbar =============== */
+.topbar {
+  position: sticky; top: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 28px;
+  background: var(--paper);
+  border-bottom: 3px solid var(--ink);
+  z-index: 50;
+  gap: 24px;
+}
+.topbar nav { display: flex; gap: 28px; flex-wrap: wrap; }
+.topbar nav a {
+  font-family: var(--font-ui), -apple-system, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+}
+.topbar nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* =============== Buttons =============== */
+.btn {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  border: none;
+  font-family: var(--font-ui), -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: opacity 150ms var(--ease-out), transform 80ms var(--ease-out), background 150ms var(--ease-out), color 150ms var(--ease-out);
+  white-space: nowrap;
+}
+.btn.primary  { background: var(--ink); color: var(--paper); }
+.btn.primary:hover  { opacity: 0.9; }
+.btn.primary:active { transform: scale(0.98); }
+.btn.ghost    { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* =============== IconButton =============== */
+.icon-btn {
+  width: 40px; height: 40px;
+  border-radius: 999px;
+  background: var(--ink);
+  border: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--paper);
+  transition: opacity 150ms var(--ease-out), transform 80ms var(--ease-out);
+  flex-shrink: 0;
+}
+.icon-btn:hover  { opacity: 0.9; }
+.icon-btn:active { transform: scale(0.96); }
+.icon-btn.ghost { background: transparent; border: 2px solid var(--ink); color: var(--ink); }
+.icon-btn.lg    { width: 48px; height: 48px; }
+.icon-btn.sm    { width: 32px; height: 32px; }
+
+/* =============== Pill =============== */
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-family: var(--font-ui), -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.pill.ghost   { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); }
+.pill.solid   { background: var(--ink); color: var(--paper); }
+.pill.mono    { font-family: var(--font-mono); font-weight: 400; letter-spacing: 0; }
+
+/* =============== Mosaic / Tile =============== */
+.mosaic {
+  background: var(--ink);
+  display: grid;
+  gap: 6px;
+  padding: 6px;
+}
+
+.tile {
+  background: var(--paper-pure);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  color: var(--ink);
+}
+.tile.sage     { background: var(--acc-sage);     color: var(--acc-sage-ink); }
+.tile.lavender { background: var(--acc-lavender); color: var(--acc-lav-ink); }
+.tile.peach    { background: var(--acc-peach);    color: var(--acc-peach-ink); }
+.tile.butter   { background: var(--acc-butter);   color: var(--acc-butter-ink); }
+.tile.ink      { background: var(--ink);          color: var(--paper); }
+
+.tile-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.tile-corner {
+  position: absolute;
+  top: 16px; right: 16px;
+  z-index: 2;
+}
+.tile-corner.bl { top: auto; bottom: 16px; right: auto; left: 16px; }
+.tile-corner.br { top: auto; bottom: 16px; right: 16px; }
+
+.tile-vlabel {
+  position: absolute;
+  font-family: var(--font-ui), -apple-system, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: currentColor;
+  opacity: 0.7;
+  writing-mode: vertical-rl;
+  z-index: 2;
+  white-space: nowrap;
+}
+.tile-vlabel.left  { left: 14px;  top: 50%; transform: translateY(-50%) rotate(180deg); }
+.tile-vlabel.right { right: 14px; top: 50%; transform: translateY(-50%); }
+
+/* =============== Doodle =============== */
+.doodle {
+  border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* =============== Code block =============== */
+.code-block {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  font-family: var(--font-mono), 'SF Mono', ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 1.65;
+  padding: 32px;
+  position: relative;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+  height: 100%;
+}
+.code-block .k { color: var(--code-key); }
+.code-block .s { color: var(--code-str); }
+.code-block .n { color: var(--code-num); }
+.code-block .f { color: var(--code-fn); }
+.code-block .c { color: var(--code-mute); font-style: italic; }
+.code-block .p { color: var(--code-fg); opacity: 0.7; }
+
+.code-copy {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--code-fg);
+  cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background 150ms var(--ease-out);
+}
+.code-copy:hover { background: rgba(255,255,255,0.16); }
+
+/* =============== Install command =============== */
+.install {
+  display: inline-flex; align-items: stretch;
+  background: var(--paper-pure);
+  border: 2px solid var(--ink);
+  height: 56px;
+  border-radius: 999px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+}
+.install .prompt {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 0 22px;
+  font-size: 15px;
+  color: var(--ink);
+}
+.install .prompt .dollar { color: var(--ink-mute); }
+.install .copy {
+  width: 56px;
+  border: none;
+  border-left: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.install .copy:hover { opacity: 0.9; }
+
+/* =============== Hairline rule =============== */
+.rule { height: 1px; background: currentColor; opacity: 0.2; border: 0; margin: 0; }
+
+/* =============== Ornaments =============== */
+.tilde { font-family: var(--font-display); font-style: italic; color: var(--ink-mute); margin: 0 0.3em; }
+.it    { font-style: italic; color: var(--ink-mute); }
+
+/* =============== Big number =============== */
+.bignum {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 11vw, 168px);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+}
+
+/* =============== Section title (in-tile) =============== */
+.tile-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin: 0;
+  font-weight: 400;
+}
+
+.tile-meta {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-mute);
+  line-height: 1.4;
+}
+
+/* =============== Vertical edge label baseline =============== */
+.vlabel {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* =============== Kill -9 demo terminal =============== */
+.term {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 24px 28px;
+  height: 100%;
+  position: relative;
+}
+.term .line { white-space: pre; }
+.term .ok   { color: var(--code-str); }
+.term .err  { color: #F08D6F; }
+.term .key  { color: var(--code-key); }
+.term .mute { color: var(--code-mute); }
+
+@keyframes blink { to { visibility: hidden; } }
+.cursor {
+  display: inline-block;
+  width: 8px; height: 14px;
+  background: var(--code-fg);
+  vertical-align: text-bottom;
+  animation: blink 1.1s steps(2,end) infinite;
+}
+
+/* =============== Misc =============== */
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.gap-2 { gap: 8px; } .gap-3 { gap: 12px; } .gap-4 { gap: 16px; } .gap-5 { gap: 24px; } .gap-6 { gap: 32px; }
+.center-y { align-items: center; }
+.center-x { justify-content: center; }
+.between { justify-content: space-between; }
+.grow { flex: 1; }
