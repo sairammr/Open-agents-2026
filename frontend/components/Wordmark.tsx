@@ -10,7 +10,7 @@ export default function Wordmark({ size = 22, reverse = false, href = '#' }: Wor
   return (
     <a className="wordmark" href={href} style={{ color: reverse ? 'var(--paper)' : 'var(--ink)' }}>
       <Asterisk size={size} reverse={reverse} />
-      <span style={{ fontSize: size * 1.05 }}>acid</span>
+      <span style={{ fontSize: size * 1.05 }}>acid.ai</span>
     </a>
   )
 }

@@ -7,21 +7,7 @@ export default function Footer() {
     <Mosaic cols="1.4fr 1fr 1fr" rows="auto">
       <Tile pad={28}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-          <Wordmark size={20} />
-          <a
-            href="https://acid.ai"
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: 12,
-              color: 'var(--ink)',
-              textDecoration: 'none',
-              borderBottom: '1px solid var(--ink)',
-              paddingBottom: 1,
-              letterSpacing: '0.02em',
-            }}
-          >
-            acid.ai
-          </a>
+          <Wordmark size={20} href="https://acid.ai" />
           <span className="it" style={{ fontSize: 13, color: 'var(--ink-mute)' }}>~ © MMXXVI · MIT</span>
         </div>
         <div className="rule" style={{ margin: '14px 0' }} />
@@ -91,7 +77,7 @@ export default function Footer() {
               margin: 0,
             }}
           >
-            Postgres taught your backend ACID semantics. <span style={{ fontStyle: 'normal' }}>ACID</span> teaches your agents.
+            Postgres taught your backend ACID semantics. <span style={{ fontStyle: 'normal' }}>acid.ai</span> teaches your agents.
           </p>
         </div>
       </Tile>
