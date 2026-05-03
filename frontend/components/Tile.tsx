@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from 'react'
+import Asterisk from './Asterisk'
 
 export type Tone = 'paper' | 'sage' | 'lavender' | 'peach' | 'butter' | 'ink' | 'code'
 
@@ -54,13 +55,7 @@ export default function Tile({
             color: 'currentColor',
           }}
         >
-          <img
-            src="/asterisk.svg"
-            width={13}
-            height={13}
-            style={{ filter: tone === 'ink' || tone === 'code' ? 'invert(1) brightness(2)' : 'none' }}
-            alt=""
-          />
+          <Asterisk size={13} reverse={tone === 'ink' || tone === 'code'} />
           <span>{brand === true ? 'acid' : brand}</span>
         </div>
       )}

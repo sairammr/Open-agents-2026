@@ -13,7 +13,7 @@ export default function Topbar() {
         </nav>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <span className="pill ghost mono" style={{ whiteSpace: 'nowrap' }}>v1.0.0</span>
-          <button className="btn primary">npm install acid</button>
+
         </div>
       </div>
     </header>

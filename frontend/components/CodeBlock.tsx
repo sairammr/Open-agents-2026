@@ -47,7 +47,7 @@ export default function CodeBlock() {
     <pre className="code-block">
       <button className="code-copy" onClick={copy} aria-label="copy">
         {copied ? (
-          <svg width={16} height={16} viewBox="0 0 64 64" fill="none" stroke="var(--code-str)" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+          <svg className="check-draw" width={16} height={16} viewBox="0 0 64 64" fill="none" stroke="var(--code-str)" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
             <path d="M22 30 L 30 38 L 44 22" />
           </svg>
         ) : (

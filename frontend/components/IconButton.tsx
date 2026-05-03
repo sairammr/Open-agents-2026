@@ -31,7 +31,7 @@ export default function IconButton({
   const px = size === 'lg' ? 22 : size === 'sm' ? 14 : 18
 
   return (
-    <button className={cls} aria-label={ariaLabel || icon} {...rest}>
+    <button className={cls} data-icon={icon} aria-label={ariaLabel || icon} {...rest}>
       <svg
         width={px}
         height={px}

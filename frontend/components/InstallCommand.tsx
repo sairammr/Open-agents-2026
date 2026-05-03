@@ -22,7 +22,7 @@ export default function InstallCommand() {
       </div>
       <button className="copy" onClick={copy} aria-label="copy install command">
         {copied ? (
-          <svg width={18} height={18} viewBox="0 0 64 64" fill="none" stroke="var(--acc-sage)" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+          <svg className="check-draw" width={18} height={18} viewBox="0 0 64 64" fill="none" stroke="var(--acc-sage)" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
             <path d="M22 30 L 30 38 L 44 22" />
           </svg>
         ) : (
